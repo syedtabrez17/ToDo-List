@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <script src="https://kit.fontawesome.com/1d34f4a820.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <h1 id="title">
+            <i class="fas fa-book"></i>
+            ToDo List
+        </h1>
+        <form id="task-input" action="/todo-items" method="POST">
+            <input type="text" name="task" placeholder="Enter the Activity" required>
+            <button type="submit">Add</button>
+        </form>
+        <div id="todo-container">
+            <ul>
+                <% for (let i of todo_list){%>
+                    <li class="tasks">
+                        <div>
+                            <%= i.task %>
+                        </div>
+                        <div>
+                            <a href="delete-task/?id=<%= i.id%>">
+                                <i class="fas fa-window-close"></i>
+                            </a>
+                        </div>
+                    </li>
+                <%}%>
+            </ul>
+        </div>
+    </body>
+</html>
